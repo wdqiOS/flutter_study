@@ -3,6 +3,7 @@ import './demo/bottom_navigation_bar_demo.dart';
 import './demo/listview_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
+import './demo/view_demo.dart';
 
 
 var content = '爱你，李哲';
@@ -30,7 +31,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: Text('你好'),
@@ -51,13 +52,14 @@ class Home extends StatelessWidget {
           bottom: TabBar(
             unselectedLabelColor: Colors.black12,
             indicatorColor: Colors.black54,
-            indicatorSize: TabBarIndicatorSize.tab,
-            indicatorWeight: 2.0,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorWeight: 1.0,
             
             tabs: <Widget>[
               Tab(icon: Icon(Icons.local_florist)),
               Tab(icon: Icon(Icons.change_history)),
               Tab(icon: Icon(Icons.directions_boat)),
+              Tab(icon: Icon(Icons.view_quilt)),
             ],
           ),
         ),
@@ -67,6 +69,7 @@ class Home extends StatelessWidget {
             // Icon(Icons.change_history, size: 128.0, color: Colors.black12,),
             BasicDemo(),
             LayoutDemo(),
+            ViewDemo(),
           ],
         ),
         drawer: Drawer(
