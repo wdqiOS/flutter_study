@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import './demo/bottom_navigation_bar_demo.dart';
+import './demo/listview_demo.dart';
+import './demo/basic_demo.dart';
 
 
 var content = '爱你，李哲';
@@ -21,17 +24,14 @@ class App extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+ 
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            tooltip: 'Navigation',
-            onPressed: () => debugPrint('Navigation button is pressed.'),
-          ),
           title: Text('你好'),
           centerTitle: true,
           actions: <Widget>[
@@ -61,9 +61,10 @@ class Home extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: <Widget>[
-            Icon(Icons.local_florist, size: 128.0, color: Colors.black12,),
-            Icon(Icons.change_history, size: 128.0, color: Colors.black12,),
+          children: <Widget>[ 
+            ListViewDemo(),
+            // Icon(Icons.change_history, size: 128.0, color: Colors.black12,),
+            BasicDemo(),
             Icon(Icons.directions_boat, size: 128.0, color: Colors.black12,),
           ],
         ),
@@ -71,32 +72,44 @@ class Home extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(
-                child: Text('Header'.toUpperCase()),
+              UserAccountsDrawerHeader(
+                accountName: Text('李哲', style: TextStyle(color: Colors.red,fontSize: 20.0, fontWeight: FontWeight.bold)),
+                accountEmail: Text('3232813737@qq.com'),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1667870871,1512487874&fm=26&gp=0.jpg'),
+                ),
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: Colors.yellow[400],
+                  image: DecorationImage(
+                    image: NetworkImage('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2193000735,3278377116&fm=27&gp=0.jpg'),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(Colors.yellow[100].withOpacity(0.5), BlendMode.hardLight),
+                  ),
                 ),
               ),
               ListTile(
                 title: Text('Messages', textAlign: TextAlign.right,),
                 trailing: Icon(Icons.message, color: Colors.black12, size: 22.0,),
+                onTap: () => Navigator.pop(context),
               ),
               ListTile(
                 title: Text('Favorite', textAlign: TextAlign.right,),
                 trailing: Icon(Icons.favorite, color: Colors.black12, size: 22.0,),
+                onTap: () => Navigator.pop(context),
               ),
               ListTile(
                 title: Text('Settings', textAlign: TextAlign.right,),
                 trailing: Icon(Icons.settings, color: Colors.black12, size: 22.0,),
+                onTap: () => Navigator.pop(context),
               ),
             ],
           ),
         ),
+        bottomNavigationBar: BottomNavigationBarDemo(),
       ),
     );
   }
 }
-
 
 
 
