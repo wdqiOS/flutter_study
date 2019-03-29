@@ -44,12 +44,6 @@ class  SliverDemo extends StatelessWidget{
   }
 }
 
-class SliverListDemo extends StatelessWidget {
-    @override
-    Widget build(BuildContext context) {
-      return null;
-    }
-}
 
 class SliverGridDemo  extends StatelessWidget{
   @override
