@@ -6,6 +6,7 @@ import './demo/layout_demo.dart';
 import './demo/view_demo.dart';
 import './demo/sliver_demo.dart';
 import './demo/navigator_demo.dart';
+import './demo/form_demo.dart';
 
 var content = '爱你，李哲';
 
@@ -16,16 +17,18 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
-      // initialRoute: '/',
-      // routes: {
-      //   '/':(context) => NavigatorDemo(),
-      //   '/about':(context) => Page(title: 'About',),
-      // },
+      // home: Home(),
+      initialRoute: '/form',
+      routes: {
+        '/': (context) => Home(),
+        '/about':(context) => Page(title: 'About',),
+        '/form': (context) => FormDemo(),
+      }, 
       theme: ThemeData(
         primarySwatch: Colors.yellow,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
         splashColor: Colors.white70,
+        accentColor: Color.fromRGBO(3, 54, 255, 1.0),
       ),
     );
   }
